@@ -42,8 +42,8 @@ export function NavBar(){
                 </a>
 
                 <a href="/">
-                    Login
                     <BiLogIn size={20} className="mb-1 me-2" />
+                    Login
                 </a>
 
                 <div className="animation start-home"></div>
