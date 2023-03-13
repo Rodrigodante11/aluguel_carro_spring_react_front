@@ -1,7 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
 import { NavBar } from './components/navBar';
-import { Footer } from './components/footer';
+// import { Footer } from './components/footer';
+import Login from './views/login';
+
 import 'bootswatch/dist/flatly/bootstrap.css';
 
 function App() {
@@ -10,25 +12,9 @@ function App() {
     <div className="App">
         <NavBar />
         <div>
-          a
+          <Login />
         </div>
         
-        <Footer />
-        
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
     </div>
   );
 }
