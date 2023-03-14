@@ -4,8 +4,9 @@ import { BiLogIn } from "react-icons/bi";
 import { AiOutlineFileSearch, AiOutlineHome } from "react-icons/ai";
 import { IoCarSportSharp } from "react-icons/io5";
 import { FaUsers } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
-export function NavBar(){
+export default function NavBar(){
     return (
         <nav id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
@@ -16,39 +17,39 @@ export function NavBar(){
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
+                    aria-label="Close">
+                </button>
             </div>
 
             <div className="offcanvas-body">
 
-                <a href="/">
+                <NavLink to="/home">
                     <AiOutlineHome size={20} className="mb-1 me-2" />
                     Home
-                </a>
+                </NavLink>
 
-                <a href="/clientes/consultaClientes">
+                <NavLink to="/clientes/consultaClientes">
                     <FaUsers size={20} className="mb-1 me-2" />
                     Clientes
-                </a>
+                </NavLink>
 
-                <a href="/carros/consultaCarros">
+                <NavLink to="/carros/consultaCarros">
                     <IoCarSportSharp size={20} className="mb-1 me-2" />
                     Carros
-                </a>
+                </NavLink>
 
-                <a href="/logsystem">
+                <NavLink to="/logsystem">
                     <AiOutlineFileSearch size={20} className="mb-1 me-2" />
                     Logs System
-                </a>
+                </NavLink>
 
-                <a href="/login">
+                <NavLink to="/login">
                     <BiLogIn size={20} className="mb-1 me-2" />
                     Login
-                </a>
+                </NavLink>
 
                 <div className="animation start-home"></div>
             </div>
-            
         </nav>
     )
 }

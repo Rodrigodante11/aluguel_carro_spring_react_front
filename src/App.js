@@ -1,19 +1,19 @@
-import { NavBar } from './components/navBar';
-
+import NavBar from './components/navBar';
 import Rotas from './views/main/rotas';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 import 'bootswatch/dist/flatly/bootstrap.css';
 
 function App() {
   return (
- 
-    <div className="App">
-        <NavBar />
-        
-        <Rotas />
-                    
+    <Router>
+      <div className="App">
+          <NavBar />
+          
+          <Rotas />
 
-    </div>
+      </div>
+    </Router>
   );
 }
 
