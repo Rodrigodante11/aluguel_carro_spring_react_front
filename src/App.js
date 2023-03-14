@@ -1,7 +1,7 @@
 import NavBar from './components/navBar';
 import Rotas from './views/main/rotas';
 import { BrowserRouter as Router} from 'react-router-dom';
-
+// import './styles/index.css'
 import 'bootswatch/dist/flatly/bootstrap.css';
 
 function App() {

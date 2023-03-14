@@ -1,0 +1,50 @@
+@media (max-width: 768px){
+    #carrosel {
+       display: none;
+    }
+}
+.carousel-inner {
+    
+    height: 425px;
+}
+.carousel-caption {
+   
+    padding-bottom: 1.25rem;
+    bottom: -6.75rem !important;
+}
+#carrosel {
+    background-color:#34495e31;
+
+    width: 100%;
+    max-height: 800px;
+}
+img{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 500px;
+    height: 300px;
+}
+.h5, h5 {
+    font-size: 2.25rem !important;
+    color: #34495e !important;
+}
+.p, p{
+    color: #34495e !important;
+}
+button{
+    background-color: #34495e !important;
+}
+.carousel-control-prev,.carousel-control-next{
+    height: 70px ;
+    width: 67px !important;
+    margin-top: 105px ;
+    border-radius: 50% ;
+    display: inline-block ;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    margin-bottom: 2px;
+
+}

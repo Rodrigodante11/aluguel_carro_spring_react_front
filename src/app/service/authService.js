@@ -6,7 +6,8 @@ export default class AuthService {
     static isUsuarioAutenticado (){
 
         const usuario = LocalStorageService.obterItem('_usuario_logado')
-        return usuario && usuario.id
+        
+        return usuario==null
 
     }
 

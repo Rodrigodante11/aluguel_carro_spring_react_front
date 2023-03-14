@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float three columns side by side */
+.column {
+    float: left;
+    width: 33.3%;
+    padding: 10px 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 1000px) {
+    .column {
+        width: 50%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }.p, p {
+   
+        font-size: smaller;
+   }
+}
+
+/* Style the counter cards */
+#cardCars {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    text-align: center;
+    background-color: #f1f1f1;
+    transition: 0.3s;
+    border-radius: 10px;
+    max-height: 325px;
+    min-height: 325px;
+    width: 320px;
+    
+}
+
+#cardCars:hover {
+    box-shadow: 0 4px 30px 0 rgba(0,0,0,0.4);
+}
+
+
+img {
+    border-radius: 10px 10px 10px 10px;
+    min-width: 250px;
+    max-width: 400px;
+    width: 80%;
+    height: 227px
+
+}
+#carsCards{
+    height: 200px;
+    margin-top: 35px;
+}
+.p, p {
+    color: #34495e;
+     
+}
+

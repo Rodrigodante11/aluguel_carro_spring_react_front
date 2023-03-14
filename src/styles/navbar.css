@@ -1,6 +1,6 @@
 nav {
-	margin: 27px auto 0;
-
+	/* margin: 27px auto 0; */
+	margin: 5px auto 0;
 	position: relative;
 	width: 590px;
 	height: 50px;
@@ -88,7 +88,7 @@ h1 {
 	background-color: #0f0f0f;
 }
 
-p {
+/* p {
     position: absolute;
     bottom: 20px;
     width: 100%;
@@ -96,8 +96,12 @@ p {
     color: #ecf0f1;
     font-family: 'Cherry Swash',cursive;
     font-size: 16px;
-}
+} */
 
 span {
     color: #2BD6B4;
+}
+
+NavLink{
+	background-color: #000000;
 }

@@ -1,12 +1,13 @@
 footer {
     background-color: #34495e !important;
     margin-bottom: 0px;
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
+    margin-top: 285px;
 }
 a:link { text-decoration: none; }
 
@@ -37,3 +38,17 @@ hr{
     }
     
 }
+@media (max-width: 1200px) {
+   footer{
+    margin-top: 560px;
+
+   }
+    
+}
+@media (max-width: 768px) {
+    footer{
+     margin-top: 940px;
+ 
+    }
+     
+ }
