@@ -6,10 +6,11 @@ import 'bootswatch/dist/flatly/bootstrap.css';
 
 function App() {
   return (
+    
     <Router>
       <div className="App">
+
           <NavBar />
-          
           <Rotas />
 
       </div>

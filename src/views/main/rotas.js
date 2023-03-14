@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-
+import { Routes, Route} from 'react-router-dom';
 import Home from "../home";
 import ConsultCarros from "../carros/consultaCarros";
 import ConsultClientes from "../clientes/consultaClientes";
@@ -16,6 +15,7 @@ const Rotas = () => {
             <Route element = { <ConsultCarros />}  path="/carros/consultaCarros" ></Route>
             <Route element = { <LoginFunction />}  path="/login" ></Route>
             <Route element = { <LogSystem />}  path="/logsystem" ></Route>
+            <Route element = { <LoginFunction />}  path="" ></Route>
         </Routes>
    )
 }
