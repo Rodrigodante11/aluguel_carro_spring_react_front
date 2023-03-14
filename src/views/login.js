@@ -9,7 +9,8 @@ export default class Login extends React.Component{
         mensagemErro: null
     }
 
-    entrar = ()=> {
+    entrar = async()=> {
+
         console.log(this.state)
     }
 

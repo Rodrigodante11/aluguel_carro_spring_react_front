@@ -26,22 +26,22 @@ export function NavBar(){
                     Home
                 </a>
 
-                <a href="/">
+                <a href="/clientes/consultaClientes">
                     <FaUsers size={20} className="mb-1 me-2" />
                     Clientes
                 </a>
 
-                <a href="/">
+                <a href="/carros/consultaCarros">
                     <IoCarSportSharp size={20} className="mb-1 me-2" />
                     Carros
                 </a>
 
-                <a href="/">
+                <a href="/logsystem">
                     <AiOutlineFileSearch size={20} className="mb-1 me-2" />
                     Logs System
                 </a>
 
-                <a href="/">
+                <a href="/login">
                     <BiLogIn size={20} className="mb-1 me-2" />
                     Login
                 </a>

@@ -1,8 +1,6 @@
-// import logo from './logo.svg';
-import './App.css';
 import { NavBar } from './components/navBar';
-// import { Footer } from './components/footer';
-import Login from './views/login';
+
+import Rotas from './views/main/rotas';
 
 import 'bootswatch/dist/flatly/bootstrap.css';
 
@@ -11,10 +9,10 @@ function App() {
  
     <div className="App">
         <NavBar />
-        <div>
-          <Login />
-        </div>
         
+        <Rotas />
+                    
+
     </div>
   );
 }

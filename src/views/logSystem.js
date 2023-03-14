@@ -1,11 +1,11 @@
 import React from "react";
 
 
-export default class ConsultClientes extends React.Component{
+export default class LogSystem extends React.Component{
     render(){
         return (
             <div>
-                Consulta Cliente
+                LogSystem
             </div>
         )
     }
