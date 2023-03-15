@@ -20,7 +20,7 @@ export function Footer(){
                     
                     <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     
-                        <h6 className="text-uppercase fw-bold mb-4 text-white">
+                        <h6 className="text-uppercase fw-bold mb-4 text-white mt-4">
                             <span>
                                 <FaLaptopCode size={30} className="mb-1 me-2" />
                                 Rodrigo FullStack 
@@ -43,9 +43,9 @@ export function Footer(){
                     <hr />
                     <hr />
 
-                    <div className="col-md-2 col-lg-2 col-xl-2 mx-auto ">
+                    <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-4">
                     
-                        <h6 className="text-uppercase fw-bold mb-4">
+                        <h6 className="text-uppercase fw-bold mb-4 ">
                             <span>
                                 Ferramentas
                             </span>
@@ -70,9 +70,9 @@ export function Footer(){
                     <hr />
                     <hr />
 
-                    <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 mt-4">
                         <span>
-                            <h6 className="text-uppercase fw-bold mb-4">
+                            <h6 className="text-uppercase fw-bold mb-4 ">
                                 Links
                             </h6>
                         

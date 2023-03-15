@@ -29,7 +29,7 @@ export default class Home extends React.Component{
                         <div className="col">
                             <Card title='Camaro'>
                                 <img src={camaro} alt=""/>
-                            
+                         
                             </Card>
                         </div>
 
