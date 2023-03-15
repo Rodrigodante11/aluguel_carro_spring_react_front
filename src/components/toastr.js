@@ -1,4 +1,11 @@
 import toastr from "toastr";
+import 'toastr/build/toastr.css';
+import '../../node_modules/toastr/toastr'
+import '../../node_modules/toastr/package-lock.json'
+import '../../node_modules/toastr/package.json'
+import '../../node_modules/toastr/toastr'
+import '../../node_modules/toastr/toastr-icon.png'
+import '../../node_modules/toastr/toastr.less'
 
 toastr.options = {
     "closeButton": true,

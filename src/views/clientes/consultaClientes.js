@@ -2,7 +2,7 @@ import React from "react";
 
 import FormGroup from "../../components/form-group";
 import ClienteService from "../../app/service/ClienteService";
-
+import '../../styles/cliente.css'
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
 import "primereact/resources/primereact.min.css";
 
@@ -79,6 +79,8 @@ export default class ConsultClientes extends React.Component{
 
     editar = (id) =>{
         messages.mensagemAlerta("Nenhum resultado foi encontrado")
+        messages.mensagemSucesso('Lancamento deletado com Sucesso')
+        messages.mensagemErro(' Erro ao tentar deletar o Lancamento, Relate ao desenvolvedor')
         // this.props.history.push(`/cadastro-lancamento/${id}`)
     
     }
