@@ -1,7 +1,9 @@
 @media (max-width: 768px){
-    #carrosel {
-       display: none;
+    .carousel-control-next-icon, .carousel-control-prev-icon, .carousel-control-prev,.carousel-control-next{
+        display: none !important;
+        
     }
+    
 }
 .carousel-inner {
     
@@ -13,7 +15,7 @@
     bottom: -6.75rem !important;
 }
 #carrosel {
-    background-color:#34495e31;
+    background-color:#34495e05;
 
     width: 100%;
     max-height: 800px;
