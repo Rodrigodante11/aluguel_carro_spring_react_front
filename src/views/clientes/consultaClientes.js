@@ -137,8 +137,8 @@ export default class ConsultClientes extends React.Component{
             <>
                 <div className='card m-5' >
                 
-                    <h3 className="card-header">
-                        Consulta Clientes
+                    <h3 className="card-header d-flex justify-content-center">
+                        Consulta de Clientes
                     </h3>
                     <div className="card-body">
         
@@ -146,7 +146,7 @@ export default class ConsultClientes extends React.Component{
                             <div className="col-md-8">
                                 <div className="bs-component">
         
-                                    <FormGroup htmlFor="inputNome" label="Nome: ">
+                                    <FormGroup htmlFor="inputNome" label="Nome do Cliente: ">
                                         <input type="text" 
                                             className="form-control" 
                                             id="inputNome"

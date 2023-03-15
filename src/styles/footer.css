@@ -7,7 +7,7 @@ footer {
     width: 100%;
     color: white;
     text-align: center;
-    margin-top: 285px;
+    margin-top: 70px;
 }
 a:link { text-decoration: none; }
 
@@ -40,14 +40,14 @@ hr{
 }
 @media (max-width: 1200px) {
    footer{
-    margin-top: 560px;
+    margin-top: 45px;
 
    }
     
 }
 @media (max-width: 768px) {
     footer{
-     margin-top: 940px;
+     margin-top: 50px;
  
     }
      
