@@ -34,17 +34,21 @@ img{
 .p, p{
     color: #34495e !important;
 }
-button{
+/* button{
     background-color: #34495e !important;
-}
+} */
 .carousel-control-prev,.carousel-control-next{
     height: 70px ;
     width: 67px !important;
     margin-top: 105px ;
     border-radius: 50% ;
     display: inline-block ;
+    background-color: #34495e4f !important;
 }
 .carousel-control-next-icon, .carousel-control-prev-icon {
     margin-bottom: 2px;
-
+  
+}
+.carousel-caption {
+    margin-bottom: -40px;
 }

@@ -8,7 +8,7 @@ import { FaLaptopCode, FaHome, FaPhoneAlt } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { AiFillLinkedin } from "react-icons/ai";
 
-export function Footer(){
+export default function Footer(){
     return (
     <>
         <footer className="text-center text-lg-start text-muted">

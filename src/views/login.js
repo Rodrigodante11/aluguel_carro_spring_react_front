@@ -6,6 +6,8 @@ import AuthService from "../app/service/authService";
 import { 
     SiSpring, SiReact, SiPostgresql, SiFacebook ,SiGoogle, SiGithub, SiLinkedin
 } from "react-icons/si";
+import { FaUsers } from "react-icons/fa";
+import { BiLogIn } from "react-icons/bi";
 
 class Login extends React.Component{
     
@@ -32,7 +34,7 @@ class Login extends React.Component{
         ).then(response => {
             
             AuthService.logar(response.data)
-            
+           
             this.props.navigate('/home')
             
             // this.context.iniciarSessao(response.data)
@@ -40,7 +42,7 @@ class Login extends React.Component{
 
         }).catch( error =>{  
             
-           this.setState({ mensagemErro : error.response.data +"!"})
+        //    this.setState({ mensagemErro : error.response.data +"!"})
             
         })
     }
@@ -126,17 +128,17 @@ class Login extends React.Component{
                             
                                     <div className="d-flex justify-content-center">
                                         <button onClick={ this.entrar } className="btn btn-primary btn-block mb-4 ">
-                                            Entrar
+                                            <BiLogIn /> Entrar
                                         </button>
 
                                         <button onClick={ this.prepareCadastrar } 
                                                 className="ms-3 btn btn-success mb-4 ">
-                                            Criar Conta
+                                            <FaUsers /> Criar Conta
                                         </button>
                                     </div>
 
                                     <div className="text-center">
-                                        <p>or sign up with:</p>
+                                        <p>Ou entro com:</p>
                                         
                                         <SiFacebook size={35} className="mb-2 me-2 " /> 
                                     

@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer } from "../components/footer";
+import Footer from "../components/footer";
 import mustang from '../imgs/Mustang.jpg';
 import camaro from '../imgs/camaro.jpg';
 import auditt from '../imgs/auditt.jpg';
