@@ -6,7 +6,7 @@ import '../styles/carossel.css'
 export default function Carrossel(){
     return (
         <div id="carrosel">
-            <div className="container p-5">
+            <div className="container p-5 ">
                 <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -15,28 +15,32 @@ export default function Carrossel(){
                     </div>
                     
                 <div className="carousel-inner">
+
                     <div className="carousel-item active">
-                    <div className="carousel-caption d-none d-md-block">
-                        <h5>Ford Mustang</h5>
-                        <p>Confira o novo carro de performance da Ford. Tudo o que você precisa saber sobre o Mustang Mach 1 2022. Solicite o seu orçamento.</p>
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5>Ford Mustang</h5>
+                            <p>Confira o novo carro de performance da Ford. Tudo o que você precisa saber sobre o Mustang Mach 1 2022. Solicite o seu orçamento.</p>
+                        </div>
+                        <img src={mustang} className="d-block w-100" alt="..." />
                     </div>
-                    <img src={mustang} className="d-block w-100" alt="..." />
-                    
-                    </div>
+
                     <div className="carousel-item">
-                    <img src={camaro} className="d-block w-100" alt="..." />
-                    <div className="carousel-caption d-none d-md-block mt-5">
-                        <h5 >Camaro</h5>
-                        <p>Confira o novo carro de performance da Ford. Tudo o que você precisa saber sobre o Mustang Mach 1 2022. Solicite o seu orçamento.</p>
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5 >Camaro</h5>
+                            <p>Confira o novo carro de performance da Ford. Tudo o que você precisa saber sobre o Mustang Mach 1 2022. Solicite o seu orçamento.</p>
+                        </div>
+                        <img src={camaro} className="d-block w-100" alt="..." />
                     </div>
-                    </div>
+
                     <div className="carousel-item">
-                    <img src={auditt} className="d-block w-100" alt="..." />
-                    <div className="carousel-caption d-none d-md-block">
-                        <h5>Audi TT</h5>
-                        <p>Confira o novo carro de performance da Ford. Tudo o que você precisa saber sobre o Mustang Mach 1 2022. Solicite o seu orçamento.</p>
+                   
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5>Audi TT</h5>
+                            <p>Confira o novo carro de performance da Ford. Tudo o que você precisa saber sobre o Mustang Mach 1 2022. Solicite o seu orçamento.</p>
+                        </div>
+                        <img src={auditt} className="d-block w-100" alt="..." />
                     </div>
-                    </div>
+
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
