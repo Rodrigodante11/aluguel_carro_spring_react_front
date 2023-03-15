@@ -20,7 +20,7 @@ export default class ConsultClientes extends React.Component{
 
         super();
         this.clienteService = new ClienteService();
-
+        //test
     }
 
     componentDidMount(){
