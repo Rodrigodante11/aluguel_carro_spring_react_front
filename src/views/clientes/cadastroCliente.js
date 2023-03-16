@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 import ClienteService from "../../app/service/ClienteService";
 import FormGroup from "../../components/form-group";
 import {useNavigate} from 'react-router-dom';
 import SelectMenu from "../../components/selectMenu";
 import * as messages from '../../components/toastr'
+import {  useParams } from "react-router-dom";
 
 export class CadastroCliente extends React.Component{
 
@@ -15,18 +16,15 @@ export class CadastroCliente extends React.Component{
     }
 
     handleChande= (event) =>{
+        
         const value = event.target.value; // pegando o valor do input
         const name = event.target.name; // pegando o name da Tag
 
         this.setState({ [name] : value}) // setando os valores
     }
 
-    componentDidMount(){
-        
-    }
-    
     state = {
-
+        id: null,
         nome:'',
         idade: null,
         email: '',
@@ -37,10 +35,42 @@ export class CadastroCliente extends React.Component{
         cidade: '',
         estado:'',
         showConfirmDialog: false,
+        atualizando:false,
+        detail:false,
         clientedeletar:{},
-        clientes: []
+        test:true,
+        clientes: [],
     }
+    
 
+    componentWillMount () 
+    {   
+        const id = this.props.params.id
+
+        if (String(window.location.href).includes("detalhar")){
+            this.setState({detail:true})
+        }
+
+        
+
+        if(id){
+
+            this.setState({ atualizando:true, })
+            this.clienteService.obterPorId(id)
+
+            .then(response => {
+            
+                this.setState({
+                    ...response.data // ... = spread operator = colocar todos propriedades // mostrar todos dados de ataualizar ao usuario 
+                }) 
+              
+            }).catch(errors => {
+                messages.mensagemErro('Error a Atualizar , Aviso o desenvolvedor')
+            })
+            
+        }
+    }
+        
     submit = () => { 
 
         const { 
@@ -63,7 +93,7 @@ export class CadastroCliente extends React.Component{
 
         try{
             this.clienteService.validar(cliente)
-            // this.props.navigate('/clientes/consultaClientes')
+
         }catch(erro){
           
             const mensagens = erro.mensagens;
@@ -82,13 +112,62 @@ export class CadastroCliente extends React.Component{
                 messages.mensagemErro(error.response.data)
             })
     }
-    render(){
 
+    atualizar = () => {
+        const { 
+            id, nome , idade , email, cpf, enderecoRua, enderecoNumero, 
+            enderecoComplemento , cidade, estado
+
+        } = this.state;
+
+        const cliente = {
+            id,
+            nome , 
+            idade , 
+            email, 
+            cpf, 
+            enderecoRua, 
+            enderecoNumero, 
+            enderecoComplemento , 
+            cidade, 
+            estado   //estado:estado
+        }
+
+        try{
+            this.clienteService.validar(cliente)
+
+        }catch(erro){
+          
+            const mensagens = erro.mensagens;
+            mensagens.forEach( msg => messages.mensagemErro(msg));
+            return false;
+    
+        }
+        console.log(cliente)
+        this.clienteService
+            .atualizar(cliente)
+            .then(Response => {
+                this.props.navigate('/clientes/consultaClientes')
+                messages.mensagemSucesso('Lancamento Atualizado com sucesso!')
+
+            }).catch(error => {
+                messages.mensagemErro(error.response.data)
+            })
+  
+    }
+
+
+    render(){
+      
         return (
             <div className="card m-5" >
        
                 <h3 className="card-header d-flex justify-content-center">
-                {this.state.atualizando ? "Atualizar Clientes" :  "Cadastro de Clientes"}
+                    {this.state.detail ? "Detalhes do cliente" 
+                        : 
+                        this.state.atualizando ? "Atualizar Clientes" :  "Cadastro de Clientes"
+                    }
+                
                 </h3>
 
                 <div className="card-body">
@@ -102,8 +181,9 @@ export class CadastroCliente extends React.Component{
                                     type="text" 
                                     className="form-control"
                                     name="nome"
-                                    value={this.state.descricao}
-                                    onChange={this.handleChande}/>
+                                    value={this.state.nome}
+                                    onChange={this.handleChande} 
+                                    disabled={this.state.detail}/>
 
                             </FormGroup>
                         </div>
@@ -118,8 +198,9 @@ export class CadastroCliente extends React.Component{
                                     type="text" 
                                     className="form-control" 
                                     name="email"
-                                    value={this.state.ano}
-                                    onChange={this.handleChande}/>
+                                    value={this.state.email}
+                                    onChange={this.handleChande} 
+                                    disabled={this.state.detail}/>
 
                             </FormGroup>
                         </div>
@@ -132,8 +213,9 @@ export class CadastroCliente extends React.Component{
                                         type="number" 
                                         className="form-control"
                                         name="idade"
-                                        value={this.state.valor}
-                                        onChange={this.handleChande}/>
+                                        value={this.state.idade}
+                                        onChange={this.handleChande} 
+                                        disabled={this.state.detail}/>
 
                                 </FormGroup>
                             </div>
@@ -148,8 +230,9 @@ export class CadastroCliente extends React.Component{
                                         type="text" 
                                         className="form-control"
                                         name="enderecoRua"
-                                        value={this.state.valor}
-                                        onChange={this.handleChande}/>
+                                        value={this.state.enderecoRua}
+                                        onChange={this.handleChande} 
+                                        disabled={this.state.detail}/>
 
                                 </FormGroup>
                             </div>
@@ -161,8 +244,9 @@ export class CadastroCliente extends React.Component{
                                         type="number" 
                                         className="form-control"
                                         name="enderecoNumero"
-                                        value={this.state.valor}
-                                        onChange={this.handleChande}/>
+                                        value={this.state.enderecoNumero}
+                                        onChange={this.handleChande} 
+                                        disabled={this.state.detail}/>
 
                                 </FormGroup>
                             </div>
@@ -174,8 +258,9 @@ export class CadastroCliente extends React.Component{
                                     <SelectMenu id="inputTipo" 
                                         className="form-control"
                                         name="estado"
-                                        value={this.state.valor}
-                                        onChange={this.handleChande} />         
+                                        value={this.state.estado}
+                                        onChange={this.handleChande}  
+                                        disabled={this.state.detail}/>       
 
                                 </FormGroup>
                             </div>
@@ -190,8 +275,9 @@ export class CadastroCliente extends React.Component{
                                         type="text" 
                                         className="form-control"
                                         name="cidade"
-                                        value={this.state.valor}
-                                        onChange={this.handleChande}/>
+                                        value={this.state.cidade}
+                                        onChange={this.handleChande} 
+                                        disabled={this.state.detail}/>
 
                                 </FormGroup>
                             </div>
@@ -202,9 +288,10 @@ export class CadastroCliente extends React.Component{
                                     <input id="inputComplemento" 
                                         type="text" 
                                         className="form-control"
-                                        name="complemento"
-                                        value={this.state.valor}
-                                        onChange={this.handleChande}/>
+                                        name="enderecoComplemento"
+                                        value={this.state.enderecoComplemento}
+                                        onChange={this.handleChande} 
+                                        disabled={this.state.detail}/>
 
                                 </FormGroup>
                             </div>
@@ -216,8 +303,9 @@ export class CadastroCliente extends React.Component{
                                         type="text" 
                                         className="form-control"
                                         name="cpf"
-                                        value={this.state.valor}
-                                        onChange={this.handleChande}/>
+                                        value={this.state.cpf}
+                                        onChange={this.handleChande} 
+                                        disabled={this.state.detail}/>
 
                                 </FormGroup>
                             </div>
@@ -227,7 +315,10 @@ export class CadastroCliente extends React.Component{
 
                     <div className="card-body d-flex justify-content-center">
 
-                        {this.state.atualizando ?  // condicao ternaria para ver se a tela vai para atualizar ou cadastrar Cliente
+                        
+
+                        {this.state.detail ? '' :
+                            this.state.atualizando ?  // condicao ternaria para ver se a tela vai para atualizar ou cadastrar Cliente
                             (
 
                                 <button onClick={this.atualizar} type="button" 
@@ -248,7 +339,7 @@ export class CadastroCliente extends React.Component{
                     
                         <button onClick={ e => this.props.navigate('/clientes/consultaClientes')}
                             type="button" className="btn btn-danger btn-lg me-2">
-                                <i className="pi pi-times"></i> Cancelar
+                                <i className="pi pi-times"></i> Voltar
                         </button>
 
                     </div>
@@ -258,9 +349,21 @@ export class CadastroCliente extends React.Component{
     }
 }
 
-export default function CadastroClienteFunction(props){
+function withRouter(Component) {
+
+    function ComponentWithRouter(props) {
+      let params = useParams()
+
+      return <Component {...props} params={params} />
+    }
+    return ComponentWithRouter
+}
+
+export default function CadastroClienteFunction(){
+ 
+    const HOCTaskDetail = withRouter(CadastroCliente);
 
     const navigate = useNavigate();
-    return(<CadastroCliente navigate={navigate}></CadastroCliente>)
+    return(<HOCTaskDetail navigate={navigate}></HOCTaskDetail>)
 
 }

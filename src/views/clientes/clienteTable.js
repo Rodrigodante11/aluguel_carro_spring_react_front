@@ -39,7 +39,7 @@ export default props =>{
                     <button type="button" title="Detalhar"
                             className="btn btn-secondary bg-transparent" 
                             // eslint-disable-next-line no-undef
-                            onClick={()=> props.deleteAction(cliente)}>
+                            onClick={()=> props.detailAction(cliente.id)}>
                            <MdRemoveRedEye color="green"/>
                     </button>
 
@@ -59,11 +59,11 @@ export default props =>{
                 
                 <thead>
                     <tr>
-                        <th scope="col">Opções</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Cidade</th>
-                        <th scope="col">Estado</th>
+                        <th scope="col">Opções |</th>
+                        <th scope="col">Nome |</th>
+                        <th scope="col">Email |</th>
+                        <th scope="col">Cidade |</th>
+                        <th scope="col">Estado |</th>
                         <th scope="col">Data Cadastro</th>
                     </tr>
                 </thead>

@@ -1,5 +1,5 @@
 import axios from "axios"
-import AuthService from "./service/authService"
+
 const httpClient = axios.create({
     // baseUrl: 'http://localhost:8080' // forma Errada 
     
@@ -44,14 +44,9 @@ class ApiService{
     }
 
     get(url){
-        const token = AuthService.obtertoken()
   
         const requestUrl = `${this.apiUrl}${url}`
-        return httpClient.get(requestUrl, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-          })
+        return httpClient.get(requestUrl)
     }
 
 }

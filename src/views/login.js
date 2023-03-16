@@ -2,12 +2,14 @@ import React from "react";
 import "../styles/login.css"
 import UsuarioService from "../app/service/usuarioService";
 import {useNavigate} from 'react-router-dom';
-import AuthService from "../app/service/authService";
+
 import { 
     SiSpring, SiReact, SiPostgresql, SiFacebook ,SiGoogle, SiGithub, SiLinkedin
 } from "react-icons/si";
+
 import { FaUsers } from "react-icons/fa";
 import { BiLogIn } from "react-icons/bi";
+import { AuthContext } from "./main/provedorAutenticacao";
 
 class Login extends React.Component{
     
@@ -33,11 +35,11 @@ class Login extends React.Component{
             }
         ).then(response => {
             
-            AuthService.logar(response.data)
+            this.context.iniciarSessao(response.data)
            
             this.props.navigate('/home')
             
-            // this.context.iniciarSessao(response.data)
+            // AuthService.logar(response.data)
             // LocalStorageService.addItem('_usuario_logado', response.data)
 
         }).catch( error =>{  
@@ -158,8 +160,10 @@ class Login extends React.Component{
     }
 }
 
+
 export default function LoginFunction(props){
 
+    Login.contextType = AuthContext
     const navigate = useNavigate();
     return(<Login navigate={navigate}></Login>)
 

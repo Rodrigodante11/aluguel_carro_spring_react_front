@@ -23,6 +23,11 @@ export default class ClienteService extends ApiService{
     deletar(id){
         return this.delete(`/${id}`)
     }
+
+    atualizar(cliente){
+        return this.put(`/${cliente.id}`, cliente)
+    }
+
     validar(cliente){
         const erros = []
 
@@ -51,7 +56,6 @@ export default class ClienteService extends ApiService{
             erros.push(' O Campo Estado é Obrigatorio')
         }
         
-
         if(erros && erros.length > 0){
             throw new ErroValidacao(erros);
         }

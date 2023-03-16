@@ -22,13 +22,13 @@ import { HiUserPlus } from "react-icons/hi2";
 export class ConsultClientes extends React.Component{
 
     constructor(){
-
         super();
         this.clienteService = new ClienteService();
-        //test
     }
 
-    componentDidMount(){
+
+    componentWillMount(){
+
         this.clienteService
             .obterTodos()
             .then( response =>{
@@ -83,11 +83,10 @@ export class ConsultClientes extends React.Component{
     }
 
     editar = (id) =>{
-        messages.mensagemAlerta("Nenhum resultado foi encontrado")
-        messages.mensagemSucesso('Cliente deletado com Sucesso')
-        messages.mensagemErro(' Erro ao tentar deletar o Cliente, Relate ao desenvolvedor')
-
-    
+        this.props.navigate(`/clientes/cadastroClientes/${id}`)
+    }
+    detalhar = (id) =>{
+        this.props.navigate(`/clientes/cadastroClientes/detalhar/${id}`, 'detalhar')
     }
 
     abrirConfirmacaoDeletar = (cliente) =>{
@@ -101,9 +100,22 @@ export class ConsultClientes extends React.Component{
     deletar = () =>{
 
         this.clienteService
-            .deletar(this.clientedeletar.id)
+            .deletar(this.state.clientedeletar.id)
             .then(response => {
+
+                // comandos abaixo foi so para atualizar a pagina pois o item ja foi deletado 
+                // entrando nesse metodo
+                const clientesConst = this.state.clientes // pegando todos clientes 
+                const indexParaDeletar = clientesConst.indexOf(this.clientedeletar) // descobrindo o index do excluido
+
+                clientesConst.splice(indexParaDeletar, 1) // deletando o excluido
+                this.setState({clientes: clientesConst}) // setando a nova lista
                 
+
+                messages.mensagemSucesso('cliente deletado com Sucesso')
+                this.setState({ showConfirmDialog: false , clientedeletar: {}})
+            }).catch(error =>{
+                messages.mensagemErro(' Erro ao tentar deletar o Cliente, Relate ao desenvolvedor')
             })
         
     }
@@ -171,9 +183,9 @@ export class ConsultClientes extends React.Component{
         
                                             <ClienteTable clientes={this.state.clientes} 
                                                 deleteAction={this.abrirConfirmacaoDeletar}
-                                                editAction={this.editar} 
-                                                alterarStatus={this.alterarStatus}/>                
-                                        
+                                                editAction={this.editar}
+                                                detailAction={this.detalhar} />
+                                                             
                                             <div className="flex flex-wrap justify-content-center gap-2 mb-2">
 
                                             </div>

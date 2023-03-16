@@ -19,7 +19,8 @@ const Rotas = () => {
             <Route element = { <LoginFunction />}  path="/login" ></Route>
             <Route element = { <LogSystem />}  path="/logsystem" ></Route>
             <Route element = { <LoginFunction />}  path="" ></Route>
-            <Route element = { <CadastroClienteFunction />}  path="/clientes/cadastroClientes" ></Route>
+            <Route element = { <CadastroClienteFunction />}  path="/clientes/cadastroClientes/:id?" ></Route>
+            <Route element = { <CadastroClienteFunction />}  path="/clientes/cadastroClientes/detalhar/:id?" ></Route>
         </Routes>
    )
 }
