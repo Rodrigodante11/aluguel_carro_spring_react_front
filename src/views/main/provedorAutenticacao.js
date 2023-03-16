@@ -1,6 +1,9 @@
 import React from "react";
 
 import AuthService from "../../app/service/authService";
+import ApiService from "../../app/apiService";
+import LocalStorageService from "../../app/service/localstorageService";
+
 
 export const AuthContext = React.createContext()
 export const AuthConsumer =  AuthContext.Consumer;
@@ -8,10 +11,23 @@ const AuthProvider =  AuthContext.Provider;
 
 
 class ProvedorAutenticacao extends React.Component{
+    
+    async componentDidMount(){
+
+        if(AuthService.isUsuarioAutenticado()){
+            this.setState({ isAutenticado: true})
+            ApiService.registrarToken(LocalStorageService.obterItem('_acess_token'))
+           
+        }else{
+            this.setState({ isAutenticado: false})
+            // console.log("deslogado")
+        }
+    }
 
     state = {
         usuarioAutenticado:  null,
         isAutenticado: false
+        
     }
    
     iniciarSessao = (usuario) => {
@@ -24,8 +40,6 @@ class ProvedorAutenticacao extends React.Component{
         AuthService.removerUsuarioLogado();
         this.setState({ isAutenticado: false, usuarioAutenticado: null})
     }
-
-    
 
     render(){
 

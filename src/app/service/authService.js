@@ -5,10 +5,13 @@ export default class AuthService {
 
     static isUsuarioAutenticado (){
 
-        const usuario = LocalStorageService.obterItem('_usuario_logado')
-        
-        return usuario==null
-
+        const token = LocalStorageService.obterItem('_acess_token')
+        if(!token){
+            return false;
+        }
+      
+        return true
+    
     }
 
     static removerUsuarioLogado (){
@@ -36,4 +39,11 @@ export default class AuthService {
 
         return LocalStorageService.obterItem('_acess_token')
     } 
+
+    static refreshSession(){
+        const token  = LocalStorageService.obterItem('_acess_token')
+        const usuario = AuthService.obterUsuarioAutenticado()
+        AuthService.logar(usuario, token)
+        return usuario;
+    }
 }

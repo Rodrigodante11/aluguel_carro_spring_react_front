@@ -8,15 +8,21 @@ import '../../styles/table.css'
 export default props =>{
 
     const rows = props.clientes.map( cliente =>{
-        
+
+        let data_mes = String(cliente.dataCadastro).split(',')[1]
+
+        if(data_mes.length === 1){
+            data_mes = "0" + data_mes 
+        }
+
         let data  = cliente.dataCadastro ? 
                     `${String(cliente.dataCadastro).split(',')[2]}/
-                     ${String(cliente.dataCadastro).split(',')[1]}/
+                     ${data_mes}/
                      ${String(cliente.dataCadastro).split(',')[0]}`
                     : '';
 
-        let nome = cliente.dataCadastro ? 
-                    `${String(cliente.nome).split(' ')[0]} ${String(cliente.nome).split(' ')[1]} `: '';
+        let nome =((String(cliente.nome).split(' ')).length !== 1) ? 
+                    `${String(cliente.nome).split(' ')[0]} ${String(cliente.nome).split(' ')[1]} `: cliente.nome;
         return (
             <tr key={cliente.id}>
 
@@ -39,7 +45,7 @@ export default props =>{
                     <button type="button" title="Detalhar"
                             className="btn btn-secondary bg-transparent" 
                             // eslint-disable-next-line no-undef
-                            onClick={()=> props.detailAction(cliente.id)}>
+                            onClick={()=> props.detailAction(cliente)}>
                            <MdRemoveRedEye color="green"/>
                     </button>
 
@@ -59,11 +65,11 @@ export default props =>{
                 
                 <thead>
                     <tr>
-                        <th scope="col">Opções |</th>
-                        <th scope="col">Nome |</th>
-                        <th scope="col">Email |</th>
-                        <th scope="col">Cidade |</th>
-                        <th scope="col">Estado |</th>
+                        <th scope="col">Opções </th>
+                        <th scope="col">Nome </th>
+                        <th scope="col">Email </th>
+                        <th scope="col">Cidade </th>
+                        <th scope="col">Estado </th>
                         <th scope="col">Data Cadastro</th>
                     </tr>
                 </thead>

@@ -7,15 +7,17 @@ import { IoCarSportSharp } from "react-icons/io5";
 import { FaUsers } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { AuthConsumer } from "../views/main/provedorAutenticacao";
-import { MdOutlineDisabledVisible } from "react-icons/md";
+import { MdOutlineDisabledVisible, MdCarRental } from "react-icons/md";
+import * as messages from '../components/toastr'
 
 function NavBar(props){
 
-   
     const handleClick = (event) => {
         if(!props.isUsuarioAutenticado)
         {
+            messages.mensagemAlerta("Por favor, Faça Login para acessar esta opção")
             event.preventDefault();
+
         }
         
     };
@@ -76,12 +78,23 @@ function NavBar(props){
                         }
                         Logs System
                 </NavLink>
-                
+
+                <NavLink to="/logsystem" 
+                        style={{ textDecoration: props.isUsuarioAutenticado ?'none': 'line-through' }} 
+                        onClick={handleClick}> 
+
+                        {props.isUsuarioAutenticado ? 
+                            (<MdCarRental size={20} className="mb-1 me-2"/>)
+                            :
+                            (<MdOutlineDisabledVisible size={20} className="mb-1 me-2" />)
+                        }
+                        Locacao
+                </NavLink>
+
                 <NavLink to="/login" onClick={props.deslogar} style={{ textDecoration: 'none' }}>
                     <BiLogIn size={20} className="mb-1 me-2" />
                     {props.isUsuarioAutenticado ? "LogOut" :  "Login"}
                 </NavLink>
-                
                 <div className="animation start-home"></div>
             </div>
         </nav>

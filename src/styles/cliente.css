@@ -13,4 +13,6 @@
 .toast-info {
     background-color: #2F96B4 !important;
 }
-  
+.row {
+    margin-bottom: 46px;
+} 

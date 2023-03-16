@@ -47,17 +47,17 @@ export class ConsultClientes extends React.Component{
     state = {
 
         nome:'',
-        idade: null,
+        idade: '',
         email: '',
         cpf: '',
         enderecoRua:'',
-        enderecoNumero: null,
+        enderecoNumero: '',
         enderecoComplemento:'',
         cidade: '',
         estado:'',
         showConfirmDialog: false,
         clientedeletar:{},
-        clientes: []
+        clientes: [],
     }
 
     buscar = () =>{
@@ -90,6 +90,7 @@ export class ConsultClientes extends React.Component{
     }
 
     abrirConfirmacaoDeletar = (cliente) =>{
+       console.log(cliente.id)
         this.setState({ showConfirmDialog: true , clientedeletar: cliente})
         
     }
@@ -98,7 +99,7 @@ export class ConsultClientes extends React.Component{
     }
 
     deletar = () =>{
-
+        
         this.clienteService
             .deletar(this.state.clientedeletar.id)
             .then(response => {
@@ -106,18 +107,22 @@ export class ConsultClientes extends React.Component{
                 // comandos abaixo foi so para atualizar a pagina pois o item ja foi deletado 
                 // entrando nesse metodo
                 const clientesConst = this.state.clientes // pegando todos clientes 
-                const indexParaDeletar = clientesConst.indexOf(this.clientedeletar) // descobrindo o index do excluido
+                const indexParaDeletar = clientesConst.indexOf(this.clienteDeletar) // descobrindo o index do excluido
 
                 clientesConst.splice(indexParaDeletar, 1) // deletando o excluido
                 this.setState({clientes: clientesConst}) // setando a nova lista
                 
 
-                messages.mensagemSucesso('cliente deletado com Sucesso')
-                this.setState({ showConfirmDialog: false , clientedeletar: {}})
+                messages.mensagemSucesso('Cliente deletado com Sucesso')
+                this.setState({ showConfirmDialog: false , clienteDeletar: {}})
+                
             }).catch(error =>{
                 messages.mensagemErro(' Erro ao tentar deletar o Cliente, Relate ao desenvolvedor')
+               
+            }).finally(() =>{
+                this.setState({ clienteDeletar: {}})
             })
-        
+       
     }
 
     preparaFormularioCadastro =() => {
