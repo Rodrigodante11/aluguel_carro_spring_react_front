@@ -158,7 +158,7 @@ class Login extends React.Component{
     }
 }
 
-export function LoginFunction(props){
+export default function LoginFunction(props){
 
     const navigate = useNavigate();
     return(<Login navigate={navigate}></Login>)

@@ -54,6 +54,7 @@ body {
     max-height: 325px;
     min-height: 325px;
     width: 320px;
+    margin-left: 40px;
     
 }
 
@@ -70,11 +71,7 @@ img {
     height: 227px
 
 }
-/* #carsCards{
-    height: 200px;
-    margin-top: 35px;
-   
-} */
+
 .p, p {
     color: #34495e;
      

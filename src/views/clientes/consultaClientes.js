@@ -2,19 +2,24 @@ import React from "react";
 
 import FormGroup from "../../components/form-group";
 import ClienteService from "../../app/service/ClienteService";
+
 import '../../styles/cliente.css'
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
 import "primereact/resources/primereact.min.css";
 
+import {useNavigate} from 'react-router-dom';
+
 import { Button } from 'primereact/button';
 import { Dialog } from "primereact/dialog";
+
 import Footer from "../../components/footer";
 import ClienteTable from "./clienteTable";
+
 import * as messages from '../../components/toastr'
 import { RiFindReplaceLine } from "react-icons/ri";
 import { HiUserPlus } from "react-icons/hi2";
 
-export default class ConsultClientes extends React.Component{
+export class ConsultClientes extends React.Component{
 
     constructor(){
 
@@ -79,9 +84,9 @@ export default class ConsultClientes extends React.Component{
 
     editar = (id) =>{
         messages.mensagemAlerta("Nenhum resultado foi encontrado")
-        messages.mensagemSucesso('Lancamento deletado com Sucesso')
-        messages.mensagemErro(' Erro ao tentar deletar o Lancamento, Relate ao desenvolvedor')
-        // this.props.history.push(`/cadastro-lancamento/${id}`)
+        messages.mensagemSucesso('Cliente deletado com Sucesso')
+        messages.mensagemErro(' Erro ao tentar deletar o Cliente, Relate ao desenvolvedor')
+
     
     }
 
@@ -95,30 +100,16 @@ export default class ConsultClientes extends React.Component{
 
     deletar = () =>{
 
-        // this.lancamentoService
-        //     .deletar(this.state.clientedeletar.id)
-        //     .then(response => {
+        this.clienteService
+            .deletar(this.clientedeletar.id)
+            .then(response => {
                 
-        //         // comandos abaixo foi so para atualizar a pagina pois o item ja foi deletado 
-        //         // entrando nesse metodo
-        //         const lancamentosConst = this.state.lancamentos // pegando todos lancamentos 
-        //         const indexParaDeletar = lancamentosConst.indexOf(this.clientedeletar) // descobrindo o index do excluido
-
-        //         lancamentosConst.splice(indexParaDeletar, 1) // deletando o excluido
-        //         this.setState({lancamentos: lancamentosConst}) // setando a nova lista
-                
-
-        //         messages.mensagemSucesso('Lancamento deletado com Sucesso')
-        //         this.setState({ showConfirmDialog: false , clientedeletar: {}})
-                
-        //     }).catch(error =>{
-        //         messages.mensagemErro(' Erro ao tentar deletar o Lancamento, Relate ao desenvolvedor')
-        //     })
+            })
         
     }
 
     preparaFormularioCadastro =() => {
-        // this.props.history.push('/cadastro-lancamento')
+        this.props.navigate('/clientes/cadastroClientes')
     }
 
 
@@ -212,4 +203,11 @@ export default class ConsultClientes extends React.Component{
             </>
         )
     }
+}
+
+export default function ConsultaClienteFunction(props){
+
+    const navigate = useNavigate();
+    return(<ConsultClientes navigate={navigate}></ConsultClientes>)
+
 }

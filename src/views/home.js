@@ -14,7 +14,7 @@ export default class Home extends React.Component{
             <div>
                 <Carrossel />
 
-                <div className="container " id="carsCards">
+                <div className="container ">
             
                     <div className="row ">
                     
