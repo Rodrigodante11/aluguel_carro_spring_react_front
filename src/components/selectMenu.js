@@ -49,16 +49,39 @@ const obterListaEstados = [
         
     ]
 
+    const obterListaTipoDeCarro = [
 
+        {    index: 0 ,value: "" , label: 'Selecione...' },
+        {    index: 1 ,value:"CONVERSIVEL", label: 'Conversivel'},
+        {    index: 2 ,value:"SEDA", label: 'Seda'},
+        {    index: 3 ,value:"HATCH", label: 'Hatch'},
+        {    index: 4 ,value:"PICAPE", label: 'Picape'},
+        {    index: 5 ,value:"ESPORTIVO", label: 'Esportivo'},
+
+    ]
+ 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (props)=>{
 
-    const options = obterListaEstados.map( (option) =>{
-        return (
-            <option key={option.index} value={option.value} > {option.label}</option>
-        )
-    }) 
+    let options= '';
 
+    if(props.name ==="estado"){
+
+        options = obterListaEstados.map( (option) =>{
+            return (
+                <option key={option.index} value={option.value} > {option.label}</option>
+            )
+        }) 
+    }
+
+    if(props.name ==="tipoCarro"){
+        options = obterListaTipoDeCarro.map( (option) =>{
+            return (
+                <option key={option.index} value={option.value} > {option.label}</option>
+            )
+        }) 
+    }
+    
     return(
 
         <select {...props}>

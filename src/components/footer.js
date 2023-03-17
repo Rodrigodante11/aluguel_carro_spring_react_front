@@ -13,7 +13,7 @@ export default function Footer(){
     <>
         <footer className="text-center text-lg-start text-muted">
         
-        <section className="">
+        <section id="fotterSection">
             <div className="container text-center text-md-start">
             
                 <div className="row mt-3">
@@ -78,8 +78,8 @@ export default function Footer(){
                         
                         
                             <a href="https://github.com/Rodrigodante11" 
-                                target= "_blank" 
-                                className="text-reset" rel="noreferrer" >
+                                target= "_blank" rel="noopener noreferrer"
+                                className="text-reset" >
 
                                 <BsGithub size={30} className="mb-1 me-2" /> 
                                 Meu Git 
@@ -87,8 +87,8 @@ export default function Footer(){
                             <br />
                         
                             <a href="https://www.linkedin.com/in/rodrigo-augusto-285691204/"
-                            target= "_blank" 
-                            className="text-reset" rel="noreferrer">
+                            target= "_blank" rel="noopener noreferrer"
+                            className="text-reset" >
                                 <AiFillLinkedin size={30} className="mb-1 me-2" /> 
                                 Meu Linkedin
                             </a>

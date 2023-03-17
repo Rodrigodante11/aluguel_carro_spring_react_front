@@ -26,7 +26,6 @@ export class ConsultClientes extends React.Component{
         this.clienteService = new ClienteService();
     }
 
-
     componentWillMount(){
 
         this.clienteService
@@ -86,11 +85,11 @@ export class ConsultClientes extends React.Component{
         this.props.navigate(`/clientes/cadastroClientes/${id}`)
     }
     detalhar = (id) =>{
-        this.props.navigate(`/clientes/cadastroClientes/detalhar/${id}`, 'detalhar')
+        this.props.navigate(`/clientes/cadastroClientes/detalhar/${id}`)
     }
 
     abrirConfirmacaoDeletar = (cliente) =>{
-       console.log(cliente.id)
+      
         this.setState({ showConfirmDialog: true , clientedeletar: cliente})
         
     }
@@ -129,10 +128,8 @@ export class ConsultClientes extends React.Component{
         this.props.navigate('/clientes/cadastroClientes')
     }
 
-
     render(){
         
-         
         const confirmDialogFooter = (
             <div>
                 <Button label="Confirmar" icon="pi pi-check" onClick={this.deletar} className="p-button-text" />
@@ -143,7 +140,7 @@ export class ConsultClientes extends React.Component{
 
         return(
             <>
-                <div className='card m-5' >
+                <div className='card m-5 bg-light bg-info' >
                 
                     <h3 className="card-header d-flex justify-content-center">
                         Consulta de Clientes
@@ -206,7 +203,7 @@ export class ConsultClientes extends React.Component{
                                         modal={true}  //congelar a tela quando o dialog estever aparecendo
                                         footer={confirmDialogFooter}>
                                         <p className="m-0">
-                                            Gostaria de Deletar um Cliente?
+                                            Gostaria de Deletar um Cliente sistema?
                                         </p>
                                     </Dialog>
                                     </div>
