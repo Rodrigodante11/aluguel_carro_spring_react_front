@@ -7,54 +7,39 @@ import '../../styles/table.css'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props =>{
 
-    const rows = props.clientes.map( cliente =>{
-
-        let data_mes = String(cliente.dataCadastro).split(',')[1]
-
-        if(data_mes.length === 1){
-            data_mes = "0" + data_mes 
-        }
-
-        let data  = cliente.dataCadastro ? 
-                    `${String(cliente.dataCadastro).split(',')[2]}/
-                     ${data_mes}/
-                     ${String(cliente.dataCadastro).split(',')[0]}`
-                    : '';
-
-        let nome =((String(cliente.nome).split(' ')).length !== 1) ? 
-                    `${String(cliente.nome).split(' ')[0]} ${String(cliente.nome).split(' ')[1]} `: cliente.nome;
+    const rows = props.carros.map( carro =>{
+        
         return (
-            <tr key={cliente.id}>
+            <tr key={carro.id}>
 
                  {/* botoes de editar e deletar cobsulta */}
                  <td> 
 
                     <button type="button"  title="Editar"
                             className="btn btn-secondary bg-transparent me-1"
-                            onClick={ ()=> props.editAction(cliente.id)}>
+                            onClick={ ()=> props.editAction(carro.id)}>
                             <MdModeEditOutline color="blue"/>
                     </button>
 
                     <button type="button" title="Excluir"
                             className="btn btn-secondary bg-transparent me-1" 
                             // eslint-disable-next-line no-undef
-                            onClick={()=> props.deleteAction(cliente)}>
+                            onClick={()=> props.deleteAction(carro)}>
                            <MdDelete color="red"/>
                     </button>
 
                     <button type="button" title="Detalhar"
                             className="btn btn-secondary bg-transparent" 
                             // eslint-disable-next-line no-undef
-                            onClick={()=> props.detailAction(cliente.id)}>
+                            onClick={()=> props.detailAction(carro.id)}>
                            <MdRemoveRedEye color="green"/>
                     </button>
 
                 </td>
-                <td>{nome}</td>
-                <td>{cliente.email}</td>
-                <td>{cliente.cidade}</td>
-                <td>{cliente.estado}</td>
-                <td>{data}</td>
+                <td>{carro.marca}</td>
+                <td>{carro.modelo}</td>
+                <td>{carro.ano}</td>
+                <td>{carro.tipoCarro}</td>
             </tr>
         )
     })
@@ -66,11 +51,11 @@ export default props =>{
                 <thead>
                     <tr>
                         <th scope="col">Opções </th>
-                        <th scope="col">Nome </th>
-                        <th scope="col">Email </th>
-                        <th scope="col">Cidade </th>
-                        <th scope="col">Estado </th>
-                        <th scope="col">Data Cadastro</th>
+                        <th scope="col">Marca </th>
+                        <th scope="col">Modelo </th>
+                        <th scope="col">Ano </th>
+                        <th scope="col">Tipo </th>
+                      
                     </tr>
                 </thead>
 

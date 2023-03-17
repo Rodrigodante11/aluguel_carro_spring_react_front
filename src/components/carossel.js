@@ -2,6 +2,7 @@ import mustang from '../imgs/Mustang.jpg'
 import camaro from '../imgs/camaro.jpg'
 import auditt from '../imgs/auditt.jpg'
 import '../styles/carossel.css'
+import React from 'react';
 
 export default function Carrossel(){
     return (

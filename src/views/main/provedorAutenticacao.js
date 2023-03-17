@@ -20,7 +20,7 @@ class ProvedorAutenticacao extends React.Component{
            
         }else{
             this.setState({ isAutenticado: false})
-            // console.log("deslogado")
+       
         }
     }
 
