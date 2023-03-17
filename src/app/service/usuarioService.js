@@ -33,11 +33,11 @@ class UsuarioService extends ApiService{
         if(!usuario.senha){
             erros.push(' Informe a senha')
         }
-        if(!usuario.senhaRepeticao)
+        if(!usuario.senhaConfirmacao)
         {
             erros.push('O campo confirmacao de senha é Obrigatorio')
         }
-        if(usuario.senha !== usuario.senhaRepeticao){
+        if(usuario.senha !== usuario.senhaConfirmacao){
             erros.push('As senha nao combinam!')
         }
 

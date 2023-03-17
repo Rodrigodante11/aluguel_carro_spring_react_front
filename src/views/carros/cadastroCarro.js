@@ -103,7 +103,7 @@ export class CadastroCarro extends React.Component{
             return false;
     
         }
-        console.log(carro)
+  
         this.carroService
             .salvar(carro)
             .then(Response => {

@@ -11,6 +11,7 @@ import CadastrolocacaoFunction from "../locacao/locacaoCadastro";
 
 import LogSystem from "../logSystem";
 import LoginFunction from "../login";
+import CadastroUsuarioFunction from "../cadastroUsuario";
 
 
 const Rotas = () => {
@@ -19,6 +20,8 @@ const Rotas = () => {
             <Route element = { <Home /> } path="/home" ></Route>
             
             <Route element = { <LoginFunction />}  path="/login" ></Route>
+            <Route element = { <CadastroUsuarioFunction />}  path="/login/cadastroUsuario" ></Route>
+
             <Route element = { <LogSystem />}  path="/logsystem" ></Route>
             <Route element = { <LoginFunction />}  path="" ></Route>
 

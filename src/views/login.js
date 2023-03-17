@@ -2,10 +2,11 @@ import React from "react";
 import "../styles/login.css"
 import UsuarioService from "../app/service/usuarioService";
 import {useNavigate} from 'react-router-dom';
+import * as messages from '../components/toastr'
 
 import { 
     SiSpring, SiReact, SiPostgresql, SiFacebook ,SiGoogle, SiGithub, SiLinkedin,
-    SiJsonwebtokens, SiBootstrap
+    SiJsonwebtokens
 
 } from "react-icons/si";
 
@@ -45,7 +46,7 @@ class Login extends React.Component{
             // LocalStorageService.addItem('_usuario_logado', response.data)
 
         }).catch( error =>{  
-            
+            messages.mensagemErro(error.response.data +"!")
         //    this.setState({ mensagemErro : error.response.data +"!"})
             
         })
@@ -85,7 +86,6 @@ class Login extends React.Component{
                                 <SiReact size={45} className="mb-2 me-2 ms-4" /> React 
                                 <SiPostgresql size={45} className="mb-2 me-2 ms-4" /> PostgreSQL
                                 <SiJsonwebtokens size={45} className="mb-2 me-2 ms-4" /> JWT Token 
-                                <SiBootstrap size={45} className="mb-2 me-2 ms-4" /> Bootstrap
 
                             </div>    
 
@@ -95,42 +95,31 @@ class Login extends React.Component{
                             <div className="card bg-glass">
                                 <div className="card-body px-4 py-5 px-md-5">
 
-                                    <span className="d-flex justify-content-center " 
-                                    style={{color: "red", fontSize:"135%"}}> 
-                                        {this.state.mensagemErro} 
-                                    </span>
-
-                                    <div className="row">
-                                        <div className="col-md-6 mb-4">
-                                        <div className="form-outline">
-                                            <input type="text" className="form-control" />
-                                            <label className="form-label" htmlFor="form3Example1">Nome</label>
-                                        </div>
-                                        </div>
-                                        <div className="col-md-6 mb-4">
-                                        <div className="form-outline">
-                                            <input type="text" className="form-control" />
-                                            <label className="form-label" htmlFor="form3Example2">Sobrenome</label>
-                                        </div>
-                                        </div>
-                                    </div>
+                                    <h1 className="d-flex justify-content-center mt-0 mb-3" 
+                                       
+                                       style={{color: "blue", fontSize:"150%"}}> 
+                                       Login no Sistema
+                                       
+                                   </h1>
 
                                     <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor="form3Example3">Endereço de Email</label>
                                         <input type="email" 
                                             className="form-control" 
                                             value={this.state.email}
                                             onChange= {  e => this.setState({email: e.target.value})}/>
                                             
-                                        <label className="form-label" htmlFor="form3Example3">Endereço de Email</label>
+                                        
                                     </div>
 
                                     <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor="form3Example4">Senha de confirmação</label>
                                         <input type="password" 
                                             className="form-control" 
                                             value={this.state.senha}
                                             onChange= {  e => this.setState({senha: e.target.value})}/>
 
-                                        <label className="form-label" htmlFor="form3Example4">Senha de confirmação</label>
+                                        
                                     </div>
                             
                                     <div className="d-flex justify-content-center">
@@ -138,7 +127,7 @@ class Login extends React.Component{
                                             <BiLogIn /> Entrar
                                         </button>
 
-                                        <button onClick={ this.prepareCadastrar } 
+                                        <button onClick={ e => this.props.navigate('/login/cadastroUsuario') } 
                                                 className="ms-3 btn btn-success mb-4 ">
                                             <FaUsers /> Criar Conta
                                         </button>
