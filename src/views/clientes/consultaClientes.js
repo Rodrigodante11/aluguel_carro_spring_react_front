@@ -116,7 +116,7 @@ export class ConsultClientes extends React.Component{
                 this.setState({ showConfirmDialog: false , clienteDeletar: {}})
                 
             }).catch(error =>{
-                messages.mensagemErro(' Erro ao tentar deletar o Cliente, Relate ao desenvolvedor')
+                messages.mensagemErro(' Erro ao tentar deletar o Cliente, , Possivelmente esta sendo usado em uma Locação')
                
             }).finally(() =>{
                 this.setState({ clienteDeletar: {}})
@@ -164,12 +164,12 @@ export class ConsultClientes extends React.Component{
                                     {/* <div className="card-body d-flex justify-content-center"> */}
         
                                         <button type="button" onClick={this.buscar} 
-                                            className="btn btn-primary btn-lg me-2">
+                                            className="btn btn-success btn-lg me-2">
                                                 <RiFindReplaceLine /> Buscar
                                         </button>
         
                                         <button onClick={this.preparaFormularioCadastro} type="button" 
-                                            className="btn btn-danger btn-lg me-2">
+                                            className="btn btn-primary btn-lg me-2">
                                                 <HiUserPlus /> Cadastrar
                                         </button>
                                         

@@ -21,7 +21,7 @@ export class CadastroCarro extends React.Component{
         const claims = decodeToken(LocalStorageService.obterItem('_acess_token'));
         
         this.setState({ usuario : claims.userid})
-        console.log(claims.userid)
+
         const id = this.props.params.id
 
         if (String(window.location.href).includes("detalhar")){
@@ -144,7 +144,7 @@ export class CadastroCarro extends React.Component{
             return false;
     
         }
-        console.log(carro)
+
         this.carroService
             .atualizar(carro)
             .then(Response => {

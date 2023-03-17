@@ -4,7 +4,9 @@ import UsuarioService from "../app/service/usuarioService";
 import {useNavigate} from 'react-router-dom';
 
 import { 
-    SiSpring, SiReact, SiPostgresql, SiFacebook ,SiGoogle, SiGithub, SiLinkedin
+    SiSpring, SiReact, SiPostgresql, SiFacebook ,SiGoogle, SiGithub, SiLinkedin,
+    SiJsonwebtokens, SiBootstrap
+
 } from "react-icons/si";
 
 import { FaUsers } from "react-icons/fa";
@@ -69,9 +71,9 @@ class Login extends React.Component{
                             <div style={{ color: "hsl(218, 81%, 75%)" }} >Rodrigo FullStack</div>
                             </h1>
                             <div className="mb-4 opacity-70" style={{ color: "hsl(218, 81%, 85%)" }} >
-                            Essa é uma Aplicação para pratica de Spring boot e React !
+                            Essa é uma Aplicação para pratica de Spring boot API e React  JS!
                             < br />
-                            A Aplicação conta com Spring boot, React , Bootstrap e Postgres
+                            A Aplicação conta com Spring boot, React , Postgres , Toekn JWT e Bootstrap 
                             </div>
                         </div>
 
@@ -81,7 +83,10 @@ class Login extends React.Component{
 
                                 <SiSpring size={45} className="mb-2 me-2 " /> Spring 
                                 <SiReact size={45} className="mb-2 me-2 ms-4" /> React 
-                                <SiPostgresql size={45} className="mb-2 me-2 ms-4" /> Postgres 
+                                <SiPostgresql size={45} className="mb-2 me-2 ms-4" /> PostgreSQL
+                                <SiJsonwebtokens size={45} className="mb-2 me-2 ms-4" /> JWT Token 
+                                <SiBootstrap size={45} className="mb-2 me-2 ms-4" /> Bootstrap
+
                             </div>    
 
                             <div className="position-absolute rounded-circle shadow-5-strong"></div>
@@ -149,6 +154,7 @@ class Login extends React.Component{
                                         <SiGithub size={35} className="mb-2 me-2 " /> 
 
                                         <SiLinkedin size={35} className="mb-2 me-2 " /> 
+                                        
                                     </div>
                                 </div>
                             </div>

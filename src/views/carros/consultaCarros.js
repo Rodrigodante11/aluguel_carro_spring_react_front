@@ -122,7 +122,7 @@ export class ConsultaCarros extends React.Component{
                 this.setState({ showConfirmDialog: false , carroDeletar: {}})
                 
             }).catch(error =>{
-                messages.mensagemErro(' Erro ao tentar deletar o carro, Relate ao desenvolvedor')
+                messages.mensagemErro(' Erro ao tentar deletar o carro, Possivelmente esta sendo usado em uma Locação')
                 
             }).finally(() =>{
                 this.setState({ carroDeletar: {}})
@@ -136,8 +136,7 @@ export class ConsultaCarros extends React.Component{
     }
 
     render(){
-        
-         
+                 
         const confirmDialogFooter = (
             <div>
                 <Button label="Confirmar" icon="pi pi-check" onClick={this.deletar} className="p-button-text" />
@@ -175,12 +174,12 @@ export class ConsultaCarros extends React.Component{
                                     {/* <div className="card-body d-flex justify-content-center"> */}
 
                                         <button type="button" onClick={this.buscar} 
-                                            className="btn btn-primary btn-lg me-2">
+                                            className="btn btn btn-success btn-lg me-2">
                                                 <RiFindReplaceLine /> Buscar
                                         </button>
 
                                         <button onClick={this.preparaFormularioCadastro} type="button" 
-                                            className="btn btn-danger btn-lg me-2">
+                                            className="btn btn-primary btn-lg me-2">
                                                 <HiUserPlus /> Cadastrar
                                         </button>                                
                                     </div>

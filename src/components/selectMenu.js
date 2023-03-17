@@ -1,20 +1,5 @@
 import React from 'react'
 
-
-// function SelectMenu(props){
-//     return(
-//         <dic> Teste 1</dic>
-//     )
-// }
-// export default SelectMenu;
-
-
-// export default (props)=>{
-//     return(
-//         <dic> Teste 2</dic>
-//     )
-// }
-
 const obterListaEstados = [
 
         {    index: 0 ,value: "" , label: 'Selecione...' },
@@ -59,6 +44,7 @@ const obterListaEstados = [
         {    index: 5 ,value:"ESPORTIVO", label: 'Esportivo'},
 
     ]
+
  
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (props)=>{
@@ -81,10 +67,37 @@ export default (props)=>{
             )
         }) 
     }
+    if(props.name ==="cliente" ){
+
+        const lista =Array.from(props.value); 
+
+        options = lista.map( (option) =>{
+       
+            return (
+                <option key={option.id} value={option.id} > {option.nome}</option>
+            )
+        });
+        
+    }
+
+
+    if(props.name ==="automovel" ){
+
+        const lista =Array.from(props.value); 
+        
+        options = lista.map( (option) =>{
+       
+            return (
+                <option key={option.id} value={option.id} > {option.marca} {option.modelo}</option>
+            )
+        });
+        
+    } 
     
     return(
 
         <select {...props}>
+            
             {options}
         </select>
 

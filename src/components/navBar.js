@@ -67,6 +67,18 @@ function NavBar(props){
                             Carros
                 </NavLink>
 
+                <NavLink to="/locacao/consultaLocacao" 
+                        style={{ textDecoration: props.isUsuarioAutenticado ?'none': 'line-through' }} 
+                        onClick={handleClick}> 
+
+                        {props.isUsuarioAutenticado ? 
+                            (<MdCarRental size={20} className="mb-1 me-2"/>)
+                            :
+                            (<MdOutlineDisabledVisible size={20} className="mb-1 me-2" />)
+                        }
+                        Locacao
+                </NavLink>
+
                 <NavLink to="/logsystem" 
                         style={{ textDecoration: props.isUsuarioAutenticado ?'none': 'line-through' }} 
                         onClick={handleClick}> 
@@ -77,18 +89,6 @@ function NavBar(props){
                             (<MdOutlineDisabledVisible size={20} className="mb-1 me-2" />)
                         }
                         Logs System
-                </NavLink>
-
-                <NavLink to="/logsystem" 
-                        style={{ textDecoration: props.isUsuarioAutenticado ?'none': 'line-through' }} 
-                        onClick={handleClick}> 
-
-                        {props.isUsuarioAutenticado ? 
-                            (<MdCarRental size={20} className="mb-1 me-2"/>)
-                            :
-                            (<MdOutlineDisabledVisible size={20} className="mb-1 me-2" />)
-                        }
-                        Locacao
                 </NavLink>
 
                 <NavLink to="/login" onClick={props.deslogar} style={{ textDecoration: 'none' }}>

@@ -11,12 +11,10 @@ export default class LogSystem extends React.Component{
                 <h1 className="m-5 text-center" >
                     
                     <FcMultipleDevices size={350} color="red mt-4"/> 
-                    Pagina em Construção</h1>
+                    Pagina em Construção
+                </h1>
                     
-                <div className="position-absolute w-100 bottom-0"> 
-                    <Footer  /> 
-                </div>
-                            
+                <Footer  />      
             </>
         )
     }
