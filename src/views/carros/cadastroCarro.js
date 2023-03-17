@@ -5,7 +5,8 @@ import {useNavigate} from 'react-router-dom';
 import FormGroup from "../../components/form-group";
 import SelectMenu from "../../components/selectMenu";
 import * as messages from '../../components/toastr'
-import  jwt  from "jsonwebtoken";
+import { decodeToken } from "react-jwt";
+
 import LocalStorageService from "../../app/service/localstorageService";
 import Footer from "../../components/footer";
 
@@ -15,13 +16,12 @@ export class CadastroCarro extends React.Component{
         super();
         this.carroService = new CarroService();
     }
-
+    
     componentDidMount(){
-        const usuarioLogado = LocalStorageService.obterItem('_acess_token')
-        const claims = jwt.decode(usuarioLogado)
-
+        const claims = decodeToken(LocalStorageService.obterItem('_acess_token'));
+        
         this.setState({ usuario : claims.userid})
-
+        console.log(claims.userid)
         const id = this.props.params.id
 
         if (String(window.location.href).includes("detalhar")){
@@ -39,11 +39,10 @@ export class CadastroCarro extends React.Component{
                     }) 
                 
                 }).catch(errors => {
-                    messages.mensagemErro('Error a Renderezar Carro , Aviso o desenvolvedor')
+                    messages.mensagemErro('Error a Renderezar o Automovel , Aviso o desenvolvedor')
                 })
             
         }
-      
     
     }
 
@@ -92,6 +91,7 @@ export class CadastroCarro extends React.Component{
             descricao , 
             usuario
         }
+        
 
         try{
             this.carroService.validar(carro)
@@ -103,7 +103,7 @@ export class CadastroCarro extends React.Component{
             return false;
     
         }
-
+        console.log(carro)
         this.carroService
             .salvar(carro)
             .then(Response => {
@@ -144,6 +144,7 @@ export class CadastroCarro extends React.Component{
             return false;
     
         }
+        console.log(carro)
         this.carroService
             .atualizar(carro)
             .then(Response => {
