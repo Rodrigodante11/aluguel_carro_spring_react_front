@@ -154,195 +154,197 @@ export class CadastroCliente extends React.Component{
     render(){
       
         return (
-            <>
-                <div className="card m-5 bg-light bg-info" >
-        
-                    <h3 className="card-header d-flex justify-content-center">
-                        {this.state.detail ? "Detalhes do cliente" 
-                            : 
-                            this.state.atualizando ? "Atualizar Clientes" :  "Cadastro de Clientes"
-                        }
+            <> 
+                <div className="container mt-5">
+                    <div className="card m-5 bg-light bg-info" >
+            
+                        <h3 className="card-header d-flex justify-content-center">
+                            {this.state.detail ? "Detalhes do cliente" 
+                                : 
+                                this.state.atualizando ? "Atualizar Clientes" :  "Cadastro de Clientes"
+                            }
+                        
+                        </h3>
+
+                        <div className="card-body">
+
+                            <div className="row">
+
+                                <div className="col-md-6">
+                                    <FormGroup id="inputNome" label="Nome: *">
+
+                                        <input id="inputNome" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="nome"
+                                            value={this.state.nome}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Nome do Cliente"/>
+
+                                    </FormGroup>
+                                </div>
+                            </div>
                     
-                    </h3>
+                            <div className="row">
 
-                    <div className="card-body">
+                                <div className="col-md-9">
+                                    <FormGroup id="inputEmail" label="Email: *">
 
-                        <div className="row">
-
-                            <div className="col-md-6">
-                                <FormGroup id="inputNome" label="Nome: *">
-
-                                    <input id="inputNome" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="nome"
-                                        value={this.state.nome}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Nome do Cliente"/>
-
-                                </FormGroup>
-                            </div>
-                        </div>
-                
-                        <div className="row">
-
-                            <div className="col-md-9">
-                                <FormGroup id="inputEmail" label="Email: *">
-
-                                    <input id="inputEmail" 
-                                        type="text" 
-                                        className="form-control" 
-                                        name="email"
-                                        value={this.state.email}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Email do cliente"/>
-                                </FormGroup>
-                            </div>
-                        
-                        
-                            <div className="col-md-3">
-                                <FormGroup id="inputIdade" label="Idade: *">
-
-                                    <input id="inputIdade" 
-                                        type="number" 
-                                        className="form-control"
-                                        name="idade"
-                                        value={this.state.idade}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Idade do Cliente"/>
-
-                                </FormGroup>
-                            </div>
-                        
-                        </div>
-
-                        <div className="row">
+                                        <input id="inputEmail" 
+                                            type="text" 
+                                            className="form-control" 
+                                            name="email"
+                                            value={this.state.email}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Email do cliente"/>
+                                    </FormGroup>
+                                </div>
                             
-                            <div className="col-md-6">
-                                <FormGroup id="inputEnderecoRua" label="Endereço Rua: ">
-
-                                    <input id="inputEnderecoRua" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="enderecoRua"
-                                        value={this.state.enderecoRua}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Rua do Cliente"/>
-
-                                </FormGroup>
-                            </div>
-
-                            <div className="col-md-3">
-                                <FormGroup id="inputEnderecoNumero" label="Endereço N°: ">
-
-                                    <input id="inputEnderecoNumero" 
-                                        type="number" 
-                                        className="form-control"
-                                        name="enderecoNumero"
-                                        value={this.state.enderecoNumero}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="N° da casa do Cliente"/>
-
-                                </FormGroup>
-                            </div>
-
-                            <div className="col-md-3">
-
-                                <FormGroup id="inputEstado" label="Estado: *">
-
-                                    <SelectMenu id="inputEstado" 
-                                        className="form-control"
-                                        name="estado"
-                                        value={this.state.estado}
-                                        onChange={this.handleChande}  
-                                        disabled={this.state.detail}/>       
-
-                                </FormGroup>
-                            </div>
-
-                        </div>
-
-                        <div className="row">
                             
-                            <div className="col-md-6">
-                                <FormGroup id="inputCidade" label="Cidade : *">
+                                <div className="col-md-3">
+                                    <FormGroup id="inputIdade" label="Idade: *">
 
-                                    <input id="inputEnderecoRua" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="cidade"
-                                        value={this.state.cidade}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="A cidade do Cliente"/>
+                                        <input id="inputIdade" 
+                                            type="number" 
+                                            className="form-control"
+                                            name="idade"
+                                            value={this.state.idade}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Idade do Cliente"/>
 
-                                </FormGroup>
+                                    </FormGroup>
+                                </div>
+                            
                             </div>
 
-                            <div className="col-md-3">
-                                    <FormGroup id="inputComplemento" label="Complemento: ">
+                            <div className="row">
+                                
+                                <div className="col-md-6">
+                                    <FormGroup id="inputEnderecoRua" label="Endereço Rua: ">
 
-                                    <input id="inputComplemento" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="enderecoComplemento"
-                                        value={this.state.enderecoComplemento}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}/>
+                                        <input id="inputEnderecoRua" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="enderecoRua"
+                                            value={this.state.enderecoRua}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Rua do Cliente"/>
 
-                                </FormGroup>
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-3">
+                                    <FormGroup id="inputEnderecoNumero" label="Endereço N°: ">
+
+                                        <input id="inputEnderecoNumero" 
+                                            type="number" 
+                                            className="form-control"
+                                            name="enderecoNumero"
+                                            value={this.state.enderecoNumero}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="N° da casa do Cliente"/>
+
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-3">
+
+                                    <FormGroup id="inputEstado" label="Estado: *">
+
+                                        <SelectMenu id="inputEstado" 
+                                            className="form-control"
+                                            name="estado"
+                                            value={this.state.estado}
+                                            onChange={this.handleChande}  
+                                            disabled={this.state.detail}/>       
+
+                                    </FormGroup>
+                                </div>
+
                             </div>
 
-                            <div className="col-md-3">
-                                    <FormGroup id="inputCpf" label="CPF: *">
+                            <div className="row">
+                                
+                                <div className="col-md-6">
+                                    <FormGroup id="inputCidade" label="Cidade : *">
 
-                                    <input id="inputCpf" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="cpf"
-                                        value={this.state.cpf}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="CPF do Cliente"/>
+                                        <input id="inputEnderecoRua" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="cidade"
+                                            value={this.state.cidade}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="A cidade do Cliente"/>
 
-                                </FormGroup>
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-3">
+                                        <FormGroup id="inputComplemento" label="Complemento: ">
+
+                                        <input id="inputComplemento" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="enderecoComplemento"
+                                            value={this.state.enderecoComplemento}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}/>
+
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-3">
+                                        <FormGroup id="inputCpf" label="CPF: *">
+
+                                        <input id="inputCpf" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="cpf"
+                                            value={this.state.cpf}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="CPF do Cliente"/>
+
+                                    </FormGroup>
+                                </div>
+
                             </div>
+                        </div>
+
+                        <div className="card-body d-flex justify-content-center">
+
+                            {this.state.detail ? '' :
+                                this.state.atualizando ?  // condicao ternaria para ver se a tela vai para atualizar ou cadastrar Cliente
+                                (
+
+                                    <button onClick={this.atualizar} type="button" 
+                                            className="btn btn-primary btn-lg me-4">
+                                            <i className="pi pi-refresh"></i> Atualizar
+                                    </button>   
+
+                                ) : (
+
+                                    <button onClick={this.submit} type="button" 
+                                            className="btn btn-success btn-lg me-4">
+                                            <i className="pi pi-save"></i> Salvar
+                                    </button>
+
+                                )
+
+                            }
+                        
+                            <button onClick={ e => this.props.navigate('/clientes/consultaClientes')}
+                                type="button" className="btn btn-danger btn-lg me-2">
+                                    <i className="pi pi-times"></i> Voltar
+                            </button>
 
                         </div>
-                    </div>
-
-                    <div className="card-body d-flex justify-content-center">
-
-                        {this.state.detail ? '' :
-                            this.state.atualizando ?  // condicao ternaria para ver se a tela vai para atualizar ou cadastrar Cliente
-                            (
-
-                                <button onClick={this.atualizar} type="button" 
-                                        className="btn btn-primary btn-lg me-4">
-                                        <i className="pi pi-refresh"></i> Atualizar
-                                </button>   
-
-                            ) : (
-
-                                <button onClick={this.submit} type="button" 
-                                        className="btn btn-success btn-lg me-4">
-                                        <i className="pi pi-save"></i> Salvar
-                                </button>
-
-                            )
-
-                        }
-                    
-                        <button onClick={ e => this.props.navigate('/clientes/consultaClientes')}
-                            type="button" className="btn btn-danger btn-lg me-2">
-                                <i className="pi pi-times"></i> Voltar
-                        </button>
-
                     </div>
                 </div>
                 <Footer />

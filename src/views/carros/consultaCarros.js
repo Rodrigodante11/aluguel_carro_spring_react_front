@@ -147,78 +147,80 @@ export class ConsultaCarros extends React.Component{
 
         return(
             <>
-                <div className='card m-5 bg-light bg-info' >
+                <div className="container mt-5">
+                    <div className='card m-5 bg-light bg-info' >
+                        
+                        <h3 className="card-header d-flex justify-content-center">
+                            Consulta de Carros
+                        </h3>
+
+                        <div className="card-body">
                     
-                    <h3 className="card-header d-flex justify-content-center">
-                        Consulta de Carros
-                    </h3>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="bs-component">
 
-                    <div className="card-body">
-                
-                        <div className="row">
-                            <div className="col-md-6">
-                                <div className="bs-component">
+                                        <FormGroup htmlFor="inputNome" label="Marca do Carro: ">
+                                            <input type="text" 
+                                                className="form-control" 
+                                                id="inputNome"
+                                                value={this.state.marca}
+                                                onChange={ e => this.setState({ marca: e.target.value})}                               
+                                                placeholder="Digite a marca" />
+                                        </FormGroup>
 
-                                    <FormGroup htmlFor="inputNome" label="Marca do Carro: ">
-                                        <input type="text" 
-                                            className="form-control" 
-                                            id="inputNome"
-                                            value={this.state.marca}
-                                            onChange={ e => this.setState({ marca: e.target.value})}                               
-                                            placeholder="Digite a marca" />
-                                    </FormGroup>
+                                    
 
-                                
+                                        <div className="card-body">
+                                        {/* <div className="card-body d-flex justify-content-center"> */}
 
-                                    <div className="card-body">
-                                    {/* <div className="card-body d-flex justify-content-center"> */}
+                                            <button type="button" onClick={this.buscar} 
+                                                className="btn btn btn-success btn-lg me-2">
+                                                    <RiFindReplaceLine /> Buscar
+                                            </button>
 
-                                        <button type="button" onClick={this.buscar} 
-                                            className="btn btn btn-success btn-lg me-2">
-                                                <RiFindReplaceLine /> Buscar
-                                        </button>
-
-                                        <button onClick={this.preparaFormularioCadastro} type="button" 
-                                            className="btn btn-primary btn-lg me-2">
-                                                <HiUserPlus /> Cadastrar
-                                        </button>                                
+                                            <button onClick={this.preparaFormularioCadastro} type="button" 
+                                                className="btn btn-primary btn-lg me-2">
+                                                    <HiUserPlus /> Cadastrar
+                                            </button>                                
+                                        </div>
                                     </div>
+
+                                </div>
+
+                                <div className="col-md-12">
+                                    <div className="bs-component">
+
+                                        <CarroTable carros={this.state.carros} 
+                                            deleteAction={this.abrirConfirmacaoDeletar}
+                                            editAction={this.editar}
+                                            detailAction={this.detalhar} />
+                                                            
+                                        <div className="flex flex-wrap justify-content-center gap-2 mb-2">
+
+                                        </div>
+                                    
+                                    </div>                                                          
+                                </div>
+
+                                <div>
+                                    <Dialog header="Excluir Carro" 
+                                        visible={this.state.showConfirmDialog} 
+                                        style={{ width: '50vw' }} 
+                                        onHide={() => this.setState({showConfirmDialog: false})} 
+                                        modal={true}  //congelar a tela quando o dialog estever aparecendo
+                                        footer={confirmDialogFooter}>
+                                        <p className="m-0">
+                                            Gostaria de Deletar um Carro do Sistema?
+                                        </p>
+                                    </Dialog>
                                 </div>
 
                             </div>
-
-                            <div className="col-md-12">
-                                <div className="bs-component">
-
-                                    <CarroTable carros={this.state.carros} 
-                                        deleteAction={this.abrirConfirmacaoDeletar}
-                                        editAction={this.editar}
-                                        detailAction={this.detalhar} />
-                                                        
-                                    <div className="flex flex-wrap justify-content-center gap-2 mb-2">
-
-                                    </div>
-                                
-                                </div>                                                          
-                            </div>
-
-                            <div>
-                                <Dialog header="Excluir Carro" 
-                                    visible={this.state.showConfirmDialog} 
-                                    style={{ width: '50vw' }} 
-                                    onHide={() => this.setState({showConfirmDialog: false})} 
-                                    modal={true}  //congelar a tela quando o dialog estever aparecendo
-                                    footer={confirmDialogFooter}>
-                                    <p className="m-0">
-                                        Gostaria de Deletar um Carro do Sistema?
-                                    </p>
-                                </Dialog>
-                            </div>
-
                         </div>
                     </div>
+                    <Footer />
                 </div>
-                <Footer />
             </>
         )
 

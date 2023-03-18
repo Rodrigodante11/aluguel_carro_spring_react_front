@@ -42,7 +42,10 @@ body {
         font-size: smaller;
    }
 }
-
+.card{
+    max-width: 1400px !important;
+ 
+}
 /* Style the counter cards */
 #cardCars {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

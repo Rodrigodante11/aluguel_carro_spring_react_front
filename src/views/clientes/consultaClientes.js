@@ -139,8 +139,9 @@ export class ConsultClientes extends React.Component{
         );
 
         return(
-            <>
-                <div className='card m-5 bg-light bg-info' >
+            <> 
+            <div className="container mt-5">
+                <div className='card bg-light bg-info' >
                 
                     <h3 className="card-header d-flex justify-content-center">
                         Consulta de Clientes
@@ -213,7 +214,10 @@ export class ConsultClientes extends React.Component{
                         </div>
                     </div>
                 </div>
+            </div>
                 <Footer />
+                
+        
             </>
         )
     }

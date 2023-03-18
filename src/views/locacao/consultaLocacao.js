@@ -115,49 +115,50 @@ export class LocacaoConsulta extends React.Component{
 
         return (
             <>
+                <div className="container mt-5">
+                    <div className='card m-5 bg-light bg-info' >
+                                        
+                            <h3 className="card-header d-flex justify-content-center">
+                                Consulta de locações
+                            </h3>
 
-                <div className='card m-5 bg-light bg-info' >
-                                    
-                        <h3 className="card-header d-flex justify-content-center">
-                            Consulta de locações
-                        </h3>
-
-                        <div className="card-body ">
-                             
-                             <div className="d-flex justify-content-center ">
-                        <button onClick={this.preparaFormularioCadastro} type="button" 
-                                className="btn btn-primary btn-lg me-2 mb-4 text-center">
-                                    <HiUserPlus /> Cadastrar Nova Locação
-                        </button> 
-                        </div>
-
-                        <div className="col-md-12">
-                                <div className="bs-component">
-
-                                    <LocacaoTable locacaos={this.state.locacaos} 
-                                        deleteAction={this.abrirConfirmacaoDeletar}
-                                        editAction={this.editar}
-                                        detailAction={this.detalhar} />
-                                                        
-                                    <div className="flex flex-wrap justify-content-center gap-2 mb-2">
-
-                                    </div>
+                            <div className="card-body ">
                                 
-                                </div>                                                          
+                                <div className="d-flex justify-content-center ">
+                            <button onClick={this.preparaFormularioCadastro} type="button" 
+                                    className="btn btn-primary btn-lg me-2 mb-4 text-center">
+                                        <HiUserPlus /> Cadastrar Nova Locação
+                            </button> 
                             </div>
 
-                            <div>
-                                <Dialog header="Excluir locacao" 
-                                    visible={this.state.showConfirmDialog} 
-                                    style={{ width: '50vw' }} 
-                                    onHide={() => this.setState({showConfirmDialog: false})} 
-                                    modal={true}  //congelar a tela quando o dialog estever aparecendo
-                                    footer={confirmDialogFooter}>
-                                    <p className="m-0">
-                                        Gostaria de Deletar um locação do Sistema?
-                                    </p>
-                                </Dialog>
-                            </div>
+                            <div className="col-md-12">
+                                    <div className="bs-component">
+
+                                        <LocacaoTable locacaos={this.state.locacaos} 
+                                            deleteAction={this.abrirConfirmacaoDeletar}
+                                            editAction={this.editar}
+                                            detailAction={this.detalhar} />
+                                                            
+                                        <div className="flex flex-wrap justify-content-center gap-2 mb-2">
+
+                                        </div>
+                                    
+                                    </div>                                                          
+                                </div>
+
+                                <div>
+                                    <Dialog header="Excluir locacao" 
+                                        visible={this.state.showConfirmDialog} 
+                                        style={{ width: '50vw' }} 
+                                        onHide={() => this.setState({showConfirmDialog: false})} 
+                                        modal={true}  //congelar a tela quando o dialog estever aparecendo
+                                        footer={confirmDialogFooter}>
+                                        <p className="m-0">
+                                            Gostaria de Deletar um locação do Sistema?
+                                        </p>
+                                    </Dialog>
+                                </div>
+                        </div>
                     </div>
                 </div>
                 <Footer />            

@@ -161,160 +161,162 @@ export class CadastroCarro extends React.Component{
       
         return (
             <>
-                <div className="card m-5 bg-light bg-info " >
-        
-                    <h3 className="card-header d-flex justify-content-center">
-                        {this.state.detail ? "Detalhes do carro" 
-                            : 
-                            this.state.atualizando ? "Atualizar carros" :  "Cadastro de carros"
-                        }
-                    
-                    </h3>
-
-                    <div className="card-body">
-
-                        <div className="row">
-
-                            <div className="col-md-6">
-                                <FormGroup id="inputMarca" label="Marca: *">
-
-                                    <input id="inputMarca" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="marca"
-                                        value={this.state.marca}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Marca do carro"/>
-
-                                </FormGroup>
-                            </div>
-
-                            <div className="col-md-6">
-                                <FormGroup id="inputModelo" label="Modelo: *">
-
-                                    <input id="inputModelo" 
-                                        type="text" 
-                                        className="form-control" 
-                                        name="modelo"
-                                        value={this.state.modelo}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Modelo do carro"/>
-                                </FormGroup>
-                            </div>
-
-                        </div>
-                
-                        <div className="row">
-
-                            <div className="col-md-3">
-                                <FormGroup id="inputAno" label="Ano: *">
-
-                                    <input id="inputAno" 
-                                        type="number" 
-                                        className="form-control"
-                                        name="ano"
-                                        value={this.state.ano}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Ano do carro"/>
-
-                                </FormGroup>
-                            </div>
-
-                            <div className="col-md-3">
-                                <FormGroup id="inputPlaca" label="Placa: ">
-
-                                    <input id="inputPlaca" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="placa"
-                                        value={this.state.placa}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Placa do carro"/>
-
-                                </FormGroup>
-                            </div>
-
-                            <div className="col-md-3">
-                                <FormGroup id="inputTipo" label="Tipo : ">
-
-                                    <SelectMenu id="inputTipo" 
-                                        className="form-control"
-                                        name="tipoCarro"
-                                        value={this.state.tipoCarro}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail} />
-
-                                </FormGroup>
-                            </div>
-
-                            <div className="col-md-3">
-                                <FormGroup id="inputCor" label="Cor : ">
-
-                                    <input id="inputCor" 
-                                        type="text" 
-                                        className="form-control"
-                                        name="cor"
-                                        value={this.state.cor}
-                                        onChange={this.handleChande} 
-                                        disabled={this.state.detail}
-                                        placeholder="Cor carro"/>
-
-                                </FormGroup>
-                            </div>
+                <div className="container mt-5">
+                    <div className="card m-5 bg-light bg-info " >
+            
+                        <h3 className="card-header d-flex justify-content-center">
+                            {this.state.detail ? "Detalhes do carro" 
+                                : 
+                                this.state.atualizando ? "Atualizar carros" :  "Cadastro de carros"
+                            }
                         
-                        </div>
+                        </h3>
 
-                        <div className="row">
+                        <div className="card-body">
+
+                            <div className="row">
+
+                                <div className="col-md-6">
+                                    <FormGroup id="inputMarca" label="Marca: *">
+
+                                        <input id="inputMarca" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="marca"
+                                            value={this.state.marca}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Marca do carro"/>
+
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-6">
+                                    <FormGroup id="inputModelo" label="Modelo: *">
+
+                                        <input id="inputModelo" 
+                                            type="text" 
+                                            className="form-control" 
+                                            name="modelo"
+                                            value={this.state.modelo}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Modelo do carro"/>
+                                    </FormGroup>
+                                </div>
+
+                            </div>
+                    
+                            <div className="row">
+
+                                <div className="col-md-3">
+                                    <FormGroup id="inputAno" label="Ano: *">
+
+                                        <input id="inputAno" 
+                                            type="number" 
+                                            className="form-control"
+                                            name="ano"
+                                            value={this.state.ano}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Ano do carro"/>
+
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-3">
+                                    <FormGroup id="inputPlaca" label="Placa: ">
+
+                                        <input id="inputPlaca" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="placa"
+                                            value={this.state.placa}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Placa do carro"/>
+
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-3">
+                                    <FormGroup id="inputTipo" label="Tipo : ">
+
+                                        <SelectMenu id="inputTipo" 
+                                            className="form-control"
+                                            name="tipoCarro"
+                                            value={this.state.tipoCarro}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail} />
+
+                                    </FormGroup>
+                                </div>
+
+                                <div className="col-md-3">
+                                    <FormGroup id="inputCor" label="Cor : ">
+
+                                        <input id="inputCor" 
+                                            type="text" 
+                                            className="form-control"
+                                            name="cor"
+                                            value={this.state.cor}
+                                            onChange={this.handleChande} 
+                                            disabled={this.state.detail}
+                                            placeholder="Cor carro"/>
+
+                                    </FormGroup>
+                                </div>
                             
-                            <div className="col-md-12">
+                            </div>
 
-                                <FormGroup id="inputDescricao" label="Descricao: ">
+                            <div className="row">
+                                
+                                <div className="col-md-12">
 
-                                    <textarea id="inputDescricao" rows="3"
-                                        className="form-control"
-                                        name="descricao"
-                                        value={this.state.descricao}
-                                        onChange={this.handleChande}  
-                                        disabled={this.state.detail}/>       
+                                    <FormGroup id="inputDescricao" label="Descricao: ">
 
-                                </FormGroup>
+                                        <textarea id="inputDescricao" rows="3"
+                                            className="form-control"
+                                            name="descricao"
+                                            value={this.state.descricao}
+                                            onChange={this.handleChande}  
+                                            disabled={this.state.detail}/>       
+
+                                    </FormGroup>
+                                </div>
+
                             </div>
 
                         </div>
 
-                    </div>
+                        <div className="card-body d-flex justify-content-center">
 
-                    <div className="card-body d-flex justify-content-center">
+                            {this.state.detail ? '' :
+                                this.state.atualizando ?  // condicao ternaria para ver se a tela vai para atualizar ou cadastrar carro
+                                (
 
-                        {this.state.detail ? '' :
-                            this.state.atualizando ?  // condicao ternaria para ver se a tela vai para atualizar ou cadastrar carro
-                            (
+                                    <button onClick={this.atualizar} type="button" 
+                                            className="btn btn-primary btn-lg me-4">
+                                            <i className="pi pi-refresh"></i> Atualizar
+                                    </button>   
 
-                                <button onClick={this.atualizar} type="button" 
-                                        className="btn btn-primary btn-lg me-4">
-                                        <i className="pi pi-refresh"></i> Atualizar
-                                </button>   
+                                ) : (
 
-                            ) : (
+                                    <button onClick={this.submit} type="button" 
+                                            className="btn btn-success btn-lg me-4">
+                                            <i className="pi pi-save"></i> Salvar
+                                    </button>
 
-                                <button onClick={this.submit} type="button" 
-                                        className="btn btn-success btn-lg me-4">
-                                        <i className="pi pi-save"></i> Salvar
-                                </button>
+                                )
 
-                            )
+                            }
+                        
+                            <button onClick={ e => this.props.navigate('/carros/consultacarros')}
+                                type="button" className="btn btn-danger btn-lg me-2">
+                                    <i className="pi pi-times"></i> Voltar
+                            </button>
 
-                        }
-                    
-                        <button onClick={ e => this.props.navigate('/carros/consultacarros')}
-                            type="button" className="btn btn-danger btn-lg me-2">
-                                <i className="pi pi-times"></i> Voltar
-                        </button>
-
+                        </div>
                     </div>
                 </div>
                 <Footer />

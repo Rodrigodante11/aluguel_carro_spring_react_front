@@ -182,6 +182,7 @@ export class CadastroLocaco extends React.Component{
     
     return (
       <>
+       <div className="container mt-5">
         <div className="card m-5 bg-light bg-info " >
         
           <h3 className="card-header d-flex justify-content-center">
@@ -281,7 +282,7 @@ export class CadastroLocaco extends React.Component{
             </div>
           </div>
         </div>
-       
+        </div>
         <Footer />
   
       </>
