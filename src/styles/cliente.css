@@ -15,4 +15,8 @@
 }
 .row {
     margin-bottom: 46px;
-} 
+}
+
+.container {
+    min-width: 1200px !important;
+}
