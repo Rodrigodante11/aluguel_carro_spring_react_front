@@ -43,8 +43,8 @@ body {
    }
 }
 .card{
-    max-width: 1400px !important;
- 
+    max-width: 1200px !important;
+    
 }
 /* Style the counter cards */
 #cardCars {

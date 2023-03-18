@@ -8,6 +8,8 @@ footer {
     color: white;
     text-align: center;
     margin-top: 300px !important;
+    min-width: none;
+    min-width: 1500px !important;
 }
 a:link { text-decoration: none; }
 
